@@ -1,4 +1,4 @@
-<img src="Tux.png" align="left" width="177px" height="2104px"/>
+<img src="Tux.png" align="left" width="177px" height="210px"/>
 
 >Welcome to my BASH repo!
 <ol>For notes on how to Linux and System Administration please refer to my <a href="https://github.com/CJBright/">website</a>.</ol>
