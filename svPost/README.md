@@ -1,43 +1,45 @@
 <img src="SV-logo.png" align="right" width="210px" height="210px"/>
 
 <h1>SimVascular Simulation Post-Processing - svPost.</h1>
-<p>Here you can find example scripts to run svPost via the command line.<br>
-The scripts can be executed on a local installation of adapted for use on your own high-powered servers.
-Additional information on svPost is accessible on <a href="https://simvascular.github.io/index.html">SimVascular's website</a>.</p>
+<p>Here you can find example scripts to run svPost and svPost-flows via the command line.<br>
+The scripts can be executed locally, or adapted for use on your own servers.<br>
+Additional information on svPost is accessible from <a href="https://simvascular.github.io/index.html">SimVascular's website</a>.</p>
 
-<h2>svPost.sh</h2>
-<h3>An example script for running svPost via the command line.</h3>
-<p>Your simulation should be complete with files stored in a restart.x format.<br>
-The script WILL require editing to be applied to your simulation, guidance is provided below.</p>
+<h2>svPost.sh - Example Script</h2>
+<h4>svPost.sh requires your simulation to be complete. Files should be in a restart.x format.<br>
+The script WILL require editing for application to your simulation, guidance on how to do so is provided below.</h4>
+
 <ol>
-    <li>Line 2: Directs the <em>svpost</em> variable to the installation on your system.<br> 
-    For pre-built binary installations on Linux, the path to svpost should be very similar to the one shown.</li>
-    <li>Lines 4-6: Set the <em>start</em> and <em>stop</em> timesteps you would like to be processed as well as the <em>increments</em> between them.<br>
-    NOTE 1 - The pressure and velocity fields take time to stabilise in your simulation. Hence, often only the timesteps corresponding to the final cardiac cycle are processed. Next, set the start timestep, stop timestep, and timestep size values in the file.<br>
-    NOTE 2 - To calculate values for TAWSS and OSI, the start timestep should be NON_ZERO.</li>
-    <li>Lines 8-9: Sets the <em>indir</em> and <em>outdir</em> variables.<br>
-    <em>indir</em> corresponds to the directory containing the simulation's results in the format <i>restart.x</i>.<br>
-    <em>outdir</em> corresponds to the directory that you want the processed results to be placed into in the format <i>.vtu</i> and <i>.vtp</i>.<br>
-    These variables may need further adjustment if your files are stored on a server - please ask your IT advice for assistance.</li>
-    <li>Line 11: Is used to call the svpost command with the settings previously specified.<br>
-    NOTE - Changing the name of <em>all_results</em> is possible, though unadvised if you wish to use svPost-flows in the next step.</li>
-    <li>Now you may either run the script from the shell or submit it to your cluster.</li>
+    <li>**Line 3:** Points the **svpost** variable to the installation on your system.<br>
+    For pre-built binary installations on Linux, the path to svpost should be similar to the one provided.</li>
+    <li>**Lines 6-8:** Set the **start** and **stop** timesteps to be processed, in addition to the **increments/spacing** between them.<br>
+    **NOTE 1 - **The pressure and velocity fields take time to stabilise in your simulation.<br>
+    Hence, often only the timesteps corresponding to the final cardiac cycle are processed.<br>
+    **NOTE 2 - **To calculate values for TAWSS and OSI, the start timestep should be a **NON_ZERO** value.</li>
+    <li>**Lines 11-12:** Set the **indir** and **outdir** variables.<br>
+    **indir** corresponds to the directory containing the simulation's results in the format *restart.x*.<br>
+    **outdir** corresponds to the directory that you want the processed results to be placed into in the format *.vtu* and *.vtp*.<br>
+    These variables may need further adjustment if your files are stored on a server - please ask your instituation's IT service for assistance.</li>
+    <li>**Line 16 & 18:** are used to call the svpost command with the settings previously specified.<br>
+    **NOTE 1 - **Generating a single file for all timesteps may require a lot of RAM, be sure to check you are not running out when issuing this command.
+    **NOTE 2 - **You are able to change the name of **all_results** to whatever you wish. However, if you wish to use svPost-flows in the next step it is advised to keep these identical between *.vtp* and *.vtu* files.</li>
+    <li>You can now either: <a href="https://stackoverflow.com/questions/2177932/how-do-i-execute-a-bash-script-in-terminal">run the script locally</a> or submit it to your server.</li>
 </ol>
 
-<h2>svPost-flows.sh</h2>
-<h3>An example script for running svPost-flows via the command line.</h3>
-<p>svPost-flows is used to generate the flow and pressure files normally generated when using svPost from within SimVascular's GUI.<br>
-svPost-flows requires the .vtu and .vtp files from the svPost command. Please run that first if you have not already done so.<br>
-Similarly, the script WILL require editing to be applied to your simulation, with guidance given below.</p>
+<h2>svPost-flows.sh - Example Script</h2>
+<h4>svPost-flows.sh generates the flow and pressure files creted when running svPost from within SimVascular's GUI.<br>
+svPost-flows.sh uses the *.vtu* and *.vtp* produced from svPost. Please run that first if you have not already done so.<br>
+Similarly, the script WILL require editing to be applied to your simulation. Guidance is given below.</h4>
+
 <ol>
-    <li>PRE-REQUISIT: This script requires the 'create-flow-files' binary to be built or installed as outlined <a href="https://github.com/ktbolt/cardiovascular/tree/master/create-flow-files">here</a>.</li>
-    <li>Line 2: Points the <em>generate-flows</em> variable to the binary identified in the <i>PRE-REQUISIT</i> step.</li>
-    <li>Lines 5-7: Sets the <em>meshDir</em>, <em>resDir</em>, and <em>outputDir</em> variables.<br>
-    <em>meshDir</em> corresponds to the directory of the mesh surface files (.vtp files) for the simulation.<br>
-    <em>resDir</em> corresponds  to the directory containing the converted simulation results from the previous svPost step.<br>
-    <em>outputDir</em> corresponds to the directory you wish the pressure and flow files to be written to.</li>
-    <li>Lines 9-11: Set the remaining options for the conversion and are set to match your simulation.<br>
-    <em>singleFile</em> should be set to <i>yes</i> if svPost converted the files into a single <i>.vtp</i> and <i>.vtu</i> file. It should be set to <i>no</i> if otherwise.<br>
-    <em>skipWalls</em> should be set to <i>yes</i> if you wish to skip the binary calculating average flows and pressures for the wall surfaces. It should be set to <i>no</i> otherwise.</li>
-    <em>units</em> should be set to the unit system of your simulation <i>cm</i> or <i>mm</i>.</li>
+    <li>**PRE-REQUISIT:** This script requires the *'create-flow-files'* binary to be built or installed as outlined <a href="https://github.com/ktbolt/cardiovascular/tree/master/create-flow-files">here</a>.</li>
+    <li>**Line 3:** Points the **generate-flows** variable to the binary identified in the *PRE-REQUISIT* step.</li>
+    <li>**Lines 6-8:** Sets the **meshDir**, **resDir**, and **outputDir** variables.<br>
+    **meshDir** corresponds to the directory of the mesh surface files (.vtp files) for the simulation.<br>
+    **resDir** corresponds  to the directory containing the converted simulation results from the previous svPost step.<br>
+    **outputDir** corresponds to the directory you wish the pressure and flow files to be written to.</li>
+    <li>**Lines 11-13:** Set the remaining options for the conversion and are set to match your simulation.<br>
+    **singleFile** should be set to *yes* if svPost converted the files into a single *.vtp* and *.vtu* file. It should be set to *no* if otherwise.<br>
+    **skipWalls** should be set to *yes* if you wish to skip the binary calculating average flows and pressures for the wall surfaces. It should be set to *no* otherwise.<br>
+    **units** should be set to the unit system of your simulation *cm* or *mm*</li>
 </ol>
