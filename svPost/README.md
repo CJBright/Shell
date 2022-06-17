@@ -10,9 +10,9 @@ Additional information on svPost is accessible from <a href="https://simvascular
 The script WILL require editing for application to your simulation, guidance on how to do so is provided below.</h4>
 
 <ol>
-    <li>**Line 3:** Points the **svpost** variable to the installation on your system.<br>
+    <li><em><em>Line 3:</em></em> Points the **svpost** variable to the installation on your system.<br>
     For pre-built binary installations on Linux, the path to svpost should be similar to the one provided.</li>
-    <li>**Lines 6-8:** Set the **start** and **stop** timesteps to be processed, in addition to the **increments/spacing** between them.<br>
+    <li><em>Lines 6-8:</em> Set the **start** and **stop** timesteps to be processed, in addition to the **increments/spacing** between them.<br>
     **NOTE 1 - **The pressure and velocity fields take time to stabilise in your simulation.<br>
     Hence, often only the timesteps corresponding to the final cardiac cycle are processed.<br>
     **NOTE 2 - **To calculate values for TAWSS and OSI, the start timestep should be a **NON_ZERO** value.</li>
