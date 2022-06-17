@@ -21,8 +21,8 @@ Hence, often only the timesteps corresponding to the final cardiac cycle are pro
 ``outdir`` corresponds to the directory that you want the processed results to be placed into in the format ***.vtu*** and ***.vtp***.</br>
 These variables may need further adjustment if your files are stored on a server - please ask your instituation's IT service for assistance.
 - **Line 16 & 18:** are used to call the svpost command with the settings previously specified.</br>
-***NOTE 1 -*** Generating a single file for all timesteps may require a lot of RAM, be sure to check you are not running out when issuing this command.</br>
-***NOTE 2 -*** You are able to change the name of ``all_results`` to whatever you wish. However, if you wish to use svPost-flows in the next step it is advised to keep these identical between ***.vtp*** and ***.vtu*** files.
+    ***NOTE 1 -*** Generating a single file for all timesteps may require a lot of RAM, be sure to check you are not running out when issuing this command.</br>
+    ***NOTE 2 -*** You are able to change the name of ``all_results`` to whatever you wish. However, if you wish to use svPost-flows in the next step it is advised to keep these identical between ***.vtp*** and ***.vtu*** files.
 - You can now either: [run the script locally](https://stackoverflow.com/questions/2177932/how-do-i-execute-a-bash-script-in-terminal) or submit it to your server.
 
 ## svPost-flows.sh - Example Script
@@ -31,10 +31,10 @@ These variables may need further adjustment if your files are stored on a server
 - ***PRE-REQUISIT:*** This script requires the ``create-flow-files`` binary to be built or installed as outlined [here](https://github.com/ktbolt/cardiovascular/tree/master/create-flow-files).
 - **Line 3:** Points the ``generate-flows`` variable to the binary identified in the **PRE-REQUISIT** step.
 - **Lines 6-8:** Sets the ``meshDir``, ``resDir``, and ``outputDir`` variables. </br>
-``meshDir`` corresponds to the directory of the mesh surface files (.vtp files) for the simulation. </br>
-``resDir`` corresponds  to the directory containing the converted simulation results from the previous svPost step. </br>
-``outputDir`` corresponds to the directory you wish the pressure and flow files to be written to.
+    ``meshDir`` corresponds to the directory of the mesh surface files (.vtp files) for the simulation. </br>
+    ``resDir`` corresponds  to the directory containing the converted simulation results from the previous svPost step. </br>
+    ``outputDir`` corresponds to the directory you wish the pressure and flow files to be written to.
 - **Lines 11-13:** Set the remaining options for the conversion and are set to match your simulation. </br>
-``singleFile`` should be set to ***yes*** if svPost converted the files into a single ***.vtp*** and ***.vtu*** file. It should be set to ***no*** if otherwise. </br>
-``skipWalls`` should be set to ***yes*** if you wish to skip the binary calculating average flows and pressures for the wall surfaces. It should be set to ***no*** otherwise. </br>
-``units`` should be set to the unit system of your simulation ***cm*** or ***mm***.
+    ``singleFile`` should be set to ***yes*** if svPost converted the files into a single ***.vtp*** and ***.vtu*** file. It should be set to ***no*** if otherwise. </br>
+    ``skipWalls`` should be set to ***yes*** if you wish to skip the binary calculating average flows and pressures for the wall surfaces. It should be set to ***no*** otherwise. </br>
+    ``units`` should be set to the unit system of your simulation ***cm*** or ***mm***.
