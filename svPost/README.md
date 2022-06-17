@@ -1,4 +1,4 @@
-<img src="SV-logo.png" align="right" width="210px" height="210px"/>
+<img src="SV-logo.png" align="right" width="200px" height="200px"/>
 
 <h1>SimVascular Simulation Post-Processing - svPost.</h1>
 <p>Here you can find example scripts to run svPost and svPost-flows via the command line.<br>
@@ -10,7 +10,7 @@ Additional information on svPost is accessible from <a href="https://simvascular
 The script WILL require editing for application to your simulation, guidance on how to do so is provided below.</h4>
 
 <ol>
-    <li><strong>Line 3:</strong> Points the ``svpost`` variable to the installation on your system.<br>
+    <li><strong>Line 3:</strong> Points the `svpost` variable to the installation on your system.<br>
     For pre-built binary installations on Linux, the path to svpost should be similar to the one provided.</li>
     <li><em>Lines 6-8:</em> Set the **start** and **stop** timesteps to be processed, in addition to the **increments/spacing** between them.<br>
     **NOTE 1 - **The pressure and velocity fields take time to stabilise in your simulation.<br>
