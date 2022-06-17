@@ -3,26 +3,25 @@
 SimVascular Simulation Post-Processing - svPost
 ===============================================
 
-Here you can find example scripts to run svPost and svPost-flows via the command line.
-The scripts can be executed locally, or adapted for use on your own servers.
+Here you can find example scripts to run svPost and svPost-flows via the command line.</br>
+The scripts can be executed locally, or adapted for use on your own servers.</br>
 Additional information on svPost is accessible from [SimVascular's website](https://simvascular.github.io/index.html).
 
 ## svPost.sh - Example Script
-#### svPost.sh requires your simulation to be complete. Files should be in a restart.x format.
-#### The script WILL require editing for application to your simulation, guidance on how to do so is provided below.
+#### svPost.sh requires your simulation to be complete. Files should be in a restart.x format. </br>The script WILL require editing for application to your simulation, guidance on how to do so is provided below.
 
-1. **Line 3:** Points the ``svpost`` variable to the installation on your system. 
+1. **Line 3:** Points the ``svpost`` variable to the installation on your system.</br>
 For pre-built binary installations on Linux, the path to svpost should be similar to the one provided.
-2. **Lines 6-8:** Set the ``start`` and ``stop`` timesteps to be processed, in addition to the ``increments`` or ``spacing`` between them.  
-**NOTE 1 -** The pressure and velocity fields take time to stabilise in your simulation.
-Hence, often only the timesteps corresponding to the final cardiac cycle are processed.
+2. **Lines 6-8:** Set the ``start`` and ``stop`` timesteps to be processed, in addition to the ``increments`` or spacing between them.</br>
+**NOTE 1 -** The pressure and velocity fields take time to stabilise in your simulation.</br>
+Hence, often only the timesteps corresponding to the final cardiac cycle are processed.</br>
 **NOTE 2 -** To calculate values for TAWSS and OSI, the start timestep should be a **NON_ZERO** value.
 3. **Lines 11-12:** Set the ``indir`` and ``outdir`` variables.
-``indir`` corresponds to the directory containing the simulation's results in the format ***restart.x***.
-``outdir`` corresponds to the directory that you want the processed results to be placed into in the format ***.vtu*** and ***.vtp***.
+``indir`` corresponds to the directory containing the simulation's results in the format ***restart.x***.</br>
+``outdir`` corresponds to the directory that you want the processed results to be placed into in the format ***.vtu*** and ***.vtp***.</br>
 These variables may need further adjustment if your files are stored on a server - please ask your instituation's IT service for assistance.
-4. **Line 16 & 18:** are used to call the svpost command with the settings previously specified.
-**NOTE 1 -** Generating a single file for all timesteps may require a lot of RAM, be sure to check you are not running out when issuing this command.
+4. **Line 16 & 18:** are used to call the svpost command with the settings previously specified.</br>
+**NOTE 1 -** Generating a single file for all timesteps may require a lot of RAM, be sure to check you are not running out when issuing this command.</br>
 **NOTE 2 -** You are able to change the name of ``all_results`` to whatever you wish. However, if you wish to use svPost-flows in the next step it is advised to keep these identical between ***.vtp*** and ***.vtu*** files.
 5. You can now either: [run the script locally](https://stackoverflow.com/questions/2177932/how-do-i-execute-a-bash-script-in-terminal) or submit it to your server.
 
