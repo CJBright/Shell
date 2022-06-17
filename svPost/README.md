@@ -7,7 +7,7 @@ Here you can find example scripts to run svPost and svPost-flows via the command
 The scripts can be executed locally, or adapted for use on your own servers.</br>
 Additional information on svPost is accessible from [SimVascular's website](https://simvascular.github.io/index.html).
 
-## svPost.sh - Example Script
+## svPost.sh - [Example Script](https://github.com/CJBright/BASH/blob/master/svPost/svPost.sh)
 #### svPost.sh requires your simulation to be complete. Files should be in a ***restart.x*** format. </br>The script *WILL* require editing for application to your simulation, guidance on how to do so is provided below.
 
 - **Line 3:** Points the ``svpost`` variable to the installation on your system.</br>
@@ -25,7 +25,7 @@ These variables may need further adjustment if your files are stored on a server
     - ***NOTE 2 -*** You are able to change the name of ``all_results`` to whatever you wish. However, if you wish to use svPost-flows in the next step it is advised to keep these identical between ***.vtp*** and ***.vtu*** files.
 - You can now either: [run the script locally](https://stackoverflow.com/questions/2177932/how-do-i-execute-a-bash-script-in-terminal) or submit it to your server.
 
-## svPost-flows.sh - Example Script
+## svPost-flows.sh - [Example Script](https://github.com/CJBright/BASH/blob/master/svPost/svPost-flows.sh)
 #### svPost-flows.sh generates the flow and pressure files creted when running svPost from within SimVascular's GUI. </br>svPost-flows.sh uses the ***.vtu*** and ***.vtp*** produced from svPost. Please run that first if you have not already done so. </br> Similarly, the script *WILL* require editing to be applied to your simulation. Guidance is given below.
 
 - ***PRE-REQUISIT:*** This script requires the ``create-flow-files`` binary to be built or installed as outlined [here](https://github.com/ktbolt/cardiovascular/tree/master/create-flow-files).
