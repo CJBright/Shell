@@ -13,6 +13,6 @@ outdir=/home/USER/Documents/sim-project/simulation/N-procs_case_svPost
 
 # Run svPost. SELECT ONE and comment out/delete the other!:
 # Generate 1 file per timestep.
-$svpost -indir ${indir} -outdir ${outdir} -start ${start} -stop ${stop} -incr ${incr} -vtp all_results -vtu all_results
+svpost -indir ${indir} -outdir ${outdir} -start ${start} -stop ${stop} -incr ${incr} -vtp all_results -vtu all_results
 # Generate 1 .vtu and 1 .vtp file containing all timesteps.
-$svpost -indir ${indir} -outdir ${outdir} -start ${start} -stop ${stop} -incr ${incr} -all -vtkcombo -vtu all_results -vtp all_results
+svpost -indir ${indir} -outdir ${outdir} -start ${start} -stop ${stop} -incr ${incr} -all -vtkcombo -vtu all_results -vtp all_results
