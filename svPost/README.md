@@ -21,7 +21,7 @@ Hence, often only the timesteps corresponding to the final cardiac cycle are pro
 ``outdir`` corresponds to the directory that you want the processed results to be placed into in the format ***.vtu*** and ***.vtp***.</br>
 These variables may need further adjustment if your files are stored on a server - please ask your instituation's IT service for assistance.
 - **Line 16 & 18:** are used to call the svpost command with the settings previously specified.</br>
-    ***NOTE 1 -*** Generating a single file for all timesteps may require a lot of RAM, be sure to check you are not running out when issuing this command.</br>
+    - ***NOTE 1 -*** Generating a single file for all timesteps may require a lot of RAM, be sure to check you are not running out when issuing this command.</br>
     ***NOTE 2 -*** You are able to change the name of ``all_results`` to whatever you wish. However, if you wish to use svPost-flows in the next step it is advised to keep these identical between ***.vtp*** and ***.vtu*** files.
 - You can now either: [run the script locally](https://stackoverflow.com/questions/2177932/how-do-i-execute-a-bash-script-in-terminal) or submit it to your server.
 
